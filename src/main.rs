@@ -9,9 +9,16 @@ use num_traits::{Float, ToPrimitive};
 //     (a_f64.powi(2) + b_f64.powi(2)).sqrt()
 // }
 
-
 //  Generic Type - Like an argument list, but for types.
-fn solve<T: Float>(a: T, b: T) -> f64 {
+// fn solve<T: Float>(a: T, b: T) -> f64 {
+//     let a_f64 = a.to_f64().unwrap();
+//     let b_f64 = b.to_f64().unwrap();
+
+//     (a_f64.powi(2) + b_f64.powi(2)).sqrt()
+// }
+
+// Multiple Generic Type
+fn solve<T: Float, U: Float>(a: T, b: U) -> f64 {
     let a_f64 = a.to_f64().unwrap();
     let b_f64 = b.to_f64().unwrap();
 
@@ -34,7 +41,7 @@ fn main() {
     // TODO: version generic with  num traits
 
     let a: f32 = 3.0;
-    let b: f32 = 4.0;
+    let b: f64 = 4.0;
 
-    println!("{} ", solve::<f32>(a, b));
+    println!("🟢 result {} ", solve(a, b));
 }
